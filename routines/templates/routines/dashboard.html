@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Routine Tracker</title>
+</head>
+<body>
+    <h1>Today's Routine</h1>
+
+    {% for task in tasks %}
+        <div>
+            <strong>{{ task.title }}</strong><br>
+            {{ task.start_time }} — {{ task.duration_minutes }} mins  
+            {% if task.is_completed %} ✅ {% else %} ❌ {% endif %}
+        </div>
+        <hr>
+    {% empty %}
+        <p>No tasks scheduled.</p>
+    {% endfor %}
+</body>
+</html>
