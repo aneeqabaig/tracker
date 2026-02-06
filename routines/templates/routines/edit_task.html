@@ -1,0 +1,28 @@
+<body class="bg-light">
+<div class="container py-4">
+
+<h4>Edit Task</h4>
+
+<form method="post" class="card shadow-sm p-3">
+{% csrf_token %}
+
+<input class="form-control mb-2" name="title" value="{{ task.title }}">
+
+<select class="form-select mb-2" name="track">
+<option value="career" {% if task.track == 'career' %}selected{% endif %}>Career</option>
+<option value="education" {% if task.track == 'education' %}selected{% endif %}>Education</option>
+<option value="health" {% if task.track == 'health' %}selected{% endif %}>Health</option>
+</select>
+
+<input class="form-control mb-2" type="date" name="scheduled_date" value="{{ task.scheduled_date }}">
+<input class="form-control mb-2" type="time" name="start_time" value="{{ task.start_time }}">
+<input class="form-control mb-3" name="duration" value="{{ task.duration_minutes }}">
+
+<button class="btn btn-success w-100">Save</button>
+
+</form>
+
+<a href="{% url 'dashboard' %}" class="btn btn-secondary w-100 mt-2">Cancel</a>
+
+</div>
+</body>
