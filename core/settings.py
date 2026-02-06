@@ -117,12 +117,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-STATIC_URL = 'static/'
+# STATIC_URL = 'static/'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
+# STATIC_ROOT = BASE_DIR / "staticfiles"
 DEBUG = False
 
 ALLOWED_HOSTS = [
     "*",
 ]
+import os
+
+# Static files (CSS, JS, images)
+STATIC_URL = '/static/'
+
+# This tells Django where to put collected static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
